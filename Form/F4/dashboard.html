@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding-bottom: 60px; /* space for footer */
+    }
+    header {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+    }
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media(max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dashboard</h1>
+    <p>Welcome, [Username]!</p>
+  </header>
+  <main>
+    <div class="card">
+      <h2>User Profile</h2>
+      <p>This section can display user's personal information or recent activity. Customize it to suit your needs.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h2>Statistics</h2>
+        <p>Placeholder for various statistics and KPIs that can be dynamically updated.</p>
+      </div>
+      <div class="card">
+        <h2>Notifications</h2>
+        <p>Display any important notifications or alerts here.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Recent Activity</h2>
+      <p>Log recent user actions or system events to keep the user informed.</p>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Your Company Name
+  </footer>
+</body>
+</html>
