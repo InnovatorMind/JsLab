@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Map Demo</title>
+    <script type="importmap">
+    {
+      "imports": {
+        "shapes/square": "./modules/square.js",
+        "shapes/circle": "./modules/circle.js",
+        "react": "https://esm.sh/react@19.1.0",
+        "react-dom/": "https://esm.sh/react-dom@19.1.0/"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <canvas id="myCanvas" width="200" height="200"></canvas>
+    <!-- Here you load main.js as a module -->
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>
