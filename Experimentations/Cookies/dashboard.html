@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="dashboard.js" defer></script>
+
+</head>
+<body>
+  <div class="navbar">
+    <div id="welcome-msg">Hello, User!</div>
+    <div class="pfp" onclick="toggleDropdown()"></div>
+    <div id="dropdown" class="dropdown">
+      <div id="dropdown-username">Logged in as: <strong id="username">User</strong></div>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+  <div class="dashboard">
+    <h2>Welcome to your dashboard</h2>
+    <p>Here you can manage your settings and view your data.</p>
+  </div>
+</body>
+</html>

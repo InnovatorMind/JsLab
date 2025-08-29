@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f7f9fc; 
+  color: #333;
+  line-height: 1.6;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+#welcome-msg {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.pfp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: url('profile-placeholder.jpg') center/cover no-repeat;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pfp:hover {
+  transform: scale(1.1);
+}
+
+.dropdown {
+  position: absolute;
+  right: 30px;
+  top: 70px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 200px;
+  padding: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#dropdown-username {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown button {
+  width: 100%;
+  background: #ff5c5c;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown button:hover {
+  background: #ff3b3b;
+}
+
+.dashboard {
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+}
+
+.dashboard h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.dashboard p {
+  font-size: 1rem;
+  color: #555;
+}
