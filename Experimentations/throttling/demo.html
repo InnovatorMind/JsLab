@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drag-and-Drop Tracker with Throttle</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    .draggable {
+      width: 100px;
+      height: 100px;
+      background: #4CAF50;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      cursor: grab;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .dropzone {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #aaa;
+      margin-top: 300px;
+      position: relative;
+    }
+    .dropzone.highlight {
+      border-color: #4CAF50;
+      background: #e8f5e9;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Drag the box and drop it into the zone</h2>
+<div class="draggable" id="dragBox">Drag me</div>
+<div class="dropzone" id="dropZone"></div>
+
+<script>
+  // Throttled mouse tracking: Updates position every 50ms for smooth performance.
+  // Drop zone highlighting: Adds visual feedback when the box overlaps the zone.
+  // Shadow + scale effects: Enhances drag experience with subtle animations.
+  const dragBox = document.getElementById('dragBox');
+  const dropZone = document.getElementById('dropZone');
+
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  function throttle(fn, limit) {
+    let lastCall = 0;
+    return function (...args) {
+      const now = Date.now();
+      if (now - lastCall >= limit) {
+        lastCall = now;
+        fn.apply(this, args);
+      }
+    };
+  }
+
+  dragBox.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - dragBox.offsetLeft;
+    offsetY = e.clientY - dragBox.offsetTop;
+    dragBox.style.boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
+    dragBox.style.transform = 'scale(1.05)';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      dragBox.style.boxShadow = '';
+      dragBox.style.transform = '';
+      dropZone.classList.remove('highlight');
+    }
+  });
+
+  document.addEventListener('mousemove', throttle((e) => {
+    if (!isDragging) return;
+
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+    dragBox.style.left = `${x}px`;
+    dragBox.style.top = `${y}px`;
+
+    const boxRect = dragBox.getBoundingClientRect();
+    const zoneRect = dropZone.getBoundingClientRect();
+
+    const isOverDropZone =
+      boxRect.right > zoneRect.left &&
+      boxRect.left < zoneRect.right &&
+      boxRect.bottom > zoneRect.top &&
+      boxRect.top < zoneRect.bottom;
+
+    dropZone.classList.toggle('highlight', isOverDropZone);
+  }, 50)); // Throttle to 20fps
+</script>
+
+</body>
+</html>

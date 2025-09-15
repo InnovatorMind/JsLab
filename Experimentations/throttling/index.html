@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Debounce vs Throttle Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+        }
+
+        .box {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .content {
+            height: 1000px;
+            background: linear-gradient(#eee, #ddd);
+        }
+
+        .log {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background: #f9f9f9;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Scroll the box below</h2>
+    <div class="box" id="scrollBox">
+        <div class="content"></div>
+    </div>
+
+    <h3>Event Logs</h3>
+    <div class="log" id="log"></div>
+    <script src="main.js"></script>
+</body>
+
+</html>
