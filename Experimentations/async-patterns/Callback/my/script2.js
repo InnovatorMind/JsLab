@@ -1,0 +1,1 @@
+console.log("from the script2 js")

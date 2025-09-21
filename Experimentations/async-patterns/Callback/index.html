@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Callback Demo</title>
+</head>
+
+<body>
+    <div style="padding: 4px; text-align: center; border-radius: 12px; margin: 16px 8px; background-color: #f07f7f;">
+        <h1 >Learning source <span><a style="font-size: small;" href="https://javascript.info/callbacks">https://javascript.info/callbacks</a></span></h1> 
+    </div>
+    <button id="load">Load Script</button>
+
+    <script>
+
+        // creates a <script> tag and append it to the page
+        function loadScript(src, callback) {
+            let script = document.createElement('script');
+            script.src = src;
+            script.onload = () => callback(null, script);
+            script.onerror = () => callback(new Error(`Script load error for ${src}`));
+            document.head.append(script);
+        }
+
+        // 1. A single script load using callback.
+        document.querySelector("#load").addEventListener("click", () => {
+            loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', (error, script) => {
+                if (error) {
+                    console.log(`error: ${error}`);
+                } else {
+                    alert(`Cool, the script ${script.src} is loaded`);
+                    alert(_); // _ is a function declared in the loaded script
+                }
+            });
+        });
+
+
+        // 2. What if we want to load multiple script in sequience
+        // can we load two scripts sequentially: the first one, and then the second one after it?
+        // yes
+        // loadScript('./my/script.js', function (script) {
+        //     loadScript('./my/script2.js', function (script) {
+        //         loadScript('./my/script3.js', function (script) {
+        //             // ...continue after all scripts are loaded
+        //             console.log("all file executed successfully in sequence")
+        //         });
+        //     });
+        // });
+
+
+        // 3. Handling errors
+        // What if the script loading fails? Our callback should be able to react on that.
+        // Pyramid of Doom
+        loadScript('./my/script.js', function (error, script) {
+            if (error) {
+                handleError(error);
+            } else {
+                loadScript('./my/script2.js', function (error, script) {
+                    if (error) {
+                        handleError(error);
+                    } else {
+                        loadScript('./my/script3.js', function (error, script) {
+                            if (error) {
+                                handleError(error);
+                            } else {
+                                // ...continue after all scripts are loaded (*)
+                                console.log("all file executed successfully in sequence")
+                            }
+                        });
+                    }
+                });
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
