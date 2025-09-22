@@ -28,12 +28,12 @@
 // fetchTodo();
   
 const jsonString = '{"name": "John", "age": 30}'; // JSON string
-console.log(jsonString);
-console.log(typeof(jsonString))
+console.log(jsonString); // {"name": "John", "age": 30}
+console.log(typeof(jsonString)) // string
 
 const parsedObject = JSON.parse(jsonString); // Parsing the string into an object
 
 // console.log(parsedObject.age);  // Output: 30
 // console.log(parsedObject.name); // Output: John
-console.log(parsedObject); // Output: John
-console.log(typeof(parsedObject))
+console.log(parsedObject); // { name: 'John', age: 30 }
+console.log(typeof(parsedObject)) // object

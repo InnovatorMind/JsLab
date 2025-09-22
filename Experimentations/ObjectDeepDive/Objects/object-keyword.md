@@ -56,5 +56,3 @@ It serves as the cornerstone of object-oriented programming in JavaScript, enabl
 - **Inheritance** (via prototypes).
 - **Property Management** (adding, accessing, and removing properties).
 - **Advanced Features** like immutability (`Object.freeze()`), cloning (`Object.assign()`), and metadata handling (`Object.getOwnPropertyDescriptor()`).
-
-Let me know if you’d like to explore any specific `Object` methods in depth! 😊

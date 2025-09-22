@@ -116,4 +116,3 @@ With a frozen object:
 - You cannot add, modify, or delete properties at the top level.
 For nested objects, freezing the entire structure (using deep freezing) ensures immutability throughout.
 
-Let me know if you'd like me to dive deeper into this or explain alternatives! 😊

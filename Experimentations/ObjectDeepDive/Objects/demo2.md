@@ -53,5 +53,3 @@ Yes, this example is quite applicable to real-life scenarios, especially when wo
 
 ### Why It's Handy
 In real-life coding, it's often necessary to safely access data in nested objects to avoid runtime errors like `TypeError: Cannot read property 'x' of undefined`. This function allows you to ensure that a key exists before trying to access it.
-
-Would you like me to adjust this example further to fit a specific use case? 😊

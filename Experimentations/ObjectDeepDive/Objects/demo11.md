@@ -68,5 +68,3 @@ The key difference between a JSON string and a JavaScript object lies in their f
    ```
 
 ---
-
-Would you like to dive deeper into JSON concepts, or work on an example involving JSON data? Let me know! 😊
